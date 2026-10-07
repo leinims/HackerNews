@@ -12,4 +12,5 @@ Esta prueba fue desarrollada en **.NET 10** sobre **Arch Linux**. Para utilizar 
 - ~~Implementacion de Optimizaciones de Performance (Cache, Cancellation token)~~
 - Inclusion de Tests
 - Logging
+- Background para cargar el cache previamente
 

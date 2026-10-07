@@ -8,9 +8,11 @@ public class BestStoriesServices(IBestStoriesProvider bestStoriesProvider) : IBe
 {
     public async Task<List<StoryDto>> GetBestStoriesAsync(int n, CancellationToken ct)
     {
-        var stories = await bestStoriesProvider.GetBestStoriesAsync(n, ct);
+        var stories = await bestStoriesProvider.GetBestStoriesAsync(ct);
+
+
         
-        return stories.Select(story => new StoryDto
+        return stories.OrderByDescending(n=>n.Score).Take(n).Select(story => new StoryDto
         {
             Title = story.Title,
             Uri = story.Uri,

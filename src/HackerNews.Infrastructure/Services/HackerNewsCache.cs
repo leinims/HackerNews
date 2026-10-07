@@ -10,7 +10,7 @@ public class HackerNewsCache (IMemoryCache cache, HackerNewsClient client) : IBe
     public static readonly TimeSpan _ttl = TimeSpan.FromMinutes(5);
     private readonly SemaphoreSlim _refreshLock = new(1, 1);
 
-    public async Task<List<Story>> GetBestStoriesAsync(int n, CancellationToken ct)
+    public async Task<List<Story>> GetBestStoriesAsync(CancellationToken ct)
     {
         if ( cache.TryGetValue(CacheKey, out List<Story>? cached)
             && cached is not null)
@@ -26,7 +26,7 @@ public class HackerNewsCache (IMemoryCache cache, HackerNewsClient client) : IBe
                 return cached;
             }
 
-            var stories = await client.GetBestStoriesAsync(n, ct);
+            var stories = await client.GetBestStoriesAsync(ct);
 
             cache.Set(CacheKey, stories, _ttl);
 
