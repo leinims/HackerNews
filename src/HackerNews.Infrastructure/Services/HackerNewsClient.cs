@@ -7,7 +7,7 @@ namespace HackerNews.Infrastructure.Services;
 
 public class HackerNewsClient(HttpClient http) : IBestStoriesProvider
 {
-    public async Task<List<Story>> GetBestStoriesAsync(int n)
+    public async Task<List<Story>> GetBestStoriesAsync(int n, CancellationToken ct)
     {
         var idList = await http.GetFromJsonAsync<List<int>>($"beststories.json") ?? [];
         

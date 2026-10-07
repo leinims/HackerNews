@@ -9,14 +9,16 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure (this IServiceCollection services)
     {
-        services.AddHttpClient<IBestStoriesProvider, HackerNewsClient>( 
+        services.AddMemoryCache();
+
+        services.AddHttpClient<HackerNewsClient>( 
             client =>
             {
                 client.BaseAddress = new Uri("https://hacker-news.firebaseio.com/v0/");
-            } 
-            
-            );
+            });
 
-            return services;   
+        services.AddScoped<IBestStoriesProvider, HackerNewsCache>();
+
+        return services;   
     }
 }

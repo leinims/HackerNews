@@ -6,9 +6,9 @@ namespace HackerNews.Application.Services;
 
 public class BestStoriesServices(IBestStoriesProvider bestStoriesProvider) : IBestStoriesService
 {
-    public async Task<List<StoryDto>> GetBestStoriesAsync(int n)
+    public async Task<List<StoryDto>> GetBestStoriesAsync(int n, CancellationToken ct)
     {
-        var stories = await bestStoriesProvider.GetBestStoriesAsync(n);
+        var stories = await bestStoriesProvider.GetBestStoriesAsync(n, ct);
         
         return stories.Select(story => new StoryDto
         {

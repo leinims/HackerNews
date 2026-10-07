@@ -4,5 +4,5 @@ namespace HackerNews.Application.Services;
 
 public interface IBestStoriesService
 {
-    Task<List<StoryDto>> GetBestStoriesAsync(int n);
+    Task<List<StoryDto>> GetBestStoriesAsync(int n, CancellationToken ct);
 }
