@@ -5,6 +5,6 @@ namespace HackerNews.Application.Abstractions;
 
 public interface IBestStoriesProvider
 {
-    Task<List<Story>> GetBestStoriesAsync (int n, CancellationToken ct);  
+    Task<List<Story>> GetBestStoriesAsync (CancellationToken ct);  
 
 }
