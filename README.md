@@ -9,7 +9,7 @@ Esta prueba fue desarrollada en **.NET 10** sobre **Arch Linux**. Para utilizar 
 ## Pendientes
 
 - Documentación
-- Implementacion de Optimizaciones de Performance (Cache, Cancellation token)
+- ~~Implementacion de Optimizaciones de Performance (Cache, Cancellation token)~~
 - Inclusion de Tests
 - Logging
 
