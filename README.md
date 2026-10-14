@@ -16,6 +16,8 @@ A Rest API that returns the top n Hacker News stories ordered by score (desc). I
 - Minimal Api Endpoints
 - Dependecy Injection
 - Caching for performance.
+- Pagination
+
 
 
 ## Running the API ##
