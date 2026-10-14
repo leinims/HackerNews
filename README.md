@@ -1,16 +1,40 @@
-# HN Best Stories API
+# Hacker News Best Stories API
 
-Esta API RESTful devuelve las mejores n historias ordenadas por score descendente.
+A Rest API that returns the top n Hacker News stories ordered by score (desc). It was built in .NET 10
 
-## Contexto
+## What it does
 
-Esta prueba fue desarrollada en **.NET 10** sobre **Arch Linux**. Para utilizar en Windows, es neceario remover RuntimeIdentifier en el csproj del Api.
+- The API uses a endpoint that bring the list of best stories Ids from Hacker Rank API.
+- Gets details for each story.
+- Sorts by score (highest first)
+- Returns the stories as a JSON
 
-## Pendientes
 
-- Documentación
-- ~~Implementacion de Optimizaciones de Performance (Cache, Cancellation token)~~
-- Inclusion de Tests
-- Logging
-- Background para cargar el cache previamente
+## Architecture ##
+
+- Clean Architecture (It's not the best option for small projects but necessary for the assessment)
+- Minimal Api Endpoints
+- Dependecy Injection
+- Caching for performance.
+
+
+## Running the API ##
+
+- `https://github.com/leinims/HackerNews.git`
+- `cd HackerNews`
+- `dotnet run --project src/HackerNews.Api`
+
+## Using the API ##
+
+- GET ` /api/beststories?n={A number between 1 and 500}`
+
+## Pendings ##
+
+- Automated tests
+- Structured logging 
+- Background cache
+- Documentation — this README covers the basics
+- Swagger docs.
+- Configurable settings.
+
 
